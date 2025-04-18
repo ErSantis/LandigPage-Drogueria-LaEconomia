@@ -13,7 +13,7 @@ const BannerSection = () => {
   const swiperRef = useRef<SwiperType>(null);
 
   return (
-    <section className="relative w-full h-[140px] md:h-[422px]">
+    <>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         centeredSlides={true}
@@ -64,7 +64,7 @@ const BannerSection = () => {
           onClick={() => swiperRef.current?.slideNext()}
         />
       </Swiper>
-    </section>
+    </>
   );
 };
 
