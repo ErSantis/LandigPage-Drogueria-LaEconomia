@@ -17,10 +17,10 @@ const BannerSection = () => {
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         centeredSlides={true}
-        loop={true} // Esto asegura el ciclo continuo
-        loopAdditionalSlides={2} // Agrega slides adicionales para un loop suave
-        slidesPerView={1} // En desktop mostramos un banner completo
-        spaceBetween={0} // Sin espacio entre banners en desktop
+        loop={true} 
+        loopAdditionalSlides={2} 
+        slidesPerView={1} 
+        spaceBetween={0} 
         breakpoints={{
           320: {
             slidesPerView: 1.05, 
