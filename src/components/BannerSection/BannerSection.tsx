@@ -39,7 +39,7 @@ const BannerSection = () => {
         }}
         pagination={{
           clickable: true,
-          renderBullet: function (index, className) {
+          renderBullet: function (className) {
             return `<span class="${className} w-1.5 h-1.5 md:w-2 md:h-2 bg-white/50 rounded-full mx-1 cursor-pointer transition-all duration-300 hover:bg-white"></span>`;
           },
           bulletActiveClass: '!bg-blue-800', // Cambiar el color activo a azul
