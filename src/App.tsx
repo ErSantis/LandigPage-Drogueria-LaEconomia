@@ -1,8 +1,16 @@
+import BannerSection from "./components/BannerSection/BannerSection";
 import Header from "./components/Header";
 
 function App() {
   return (
-    <Header />
+    <>
+      <header>
+        <Header />
+      </header>
+      <main>
+        <BannerSection />
+      </main>
+    </>
   );
 }
 
