@@ -8,11 +8,11 @@ function App() {
       <header>
         <Header />
       </header>
-      <main>
-        <section className="relative w-full h-[140px] md:h-[422px]">
+      <main className="w-full">
+        <section className="relativeh-[140px] md:h-[422px]">
           <BannerSection />
         </section >
-        <section className="w-full bg-white mt-4 px-4 md:px-10">
+        <section className="bg-white mt-4 px-4 md:px-10">
           <FeaturedHome />
         </section>
       </main>
