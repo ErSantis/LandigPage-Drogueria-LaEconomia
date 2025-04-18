@@ -10,7 +10,7 @@ import {
     MenuIcon,
     SearchIcon,
     UserIcon,
-} from "./Icons";
+} from "../Icons";
 import NavBar from "./NavBar";
 import { useState } from "react";
 import NavBarMobile from "./NavBarMobile";
@@ -20,7 +20,7 @@ const Header = React.memo(() => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <header className="w-full">
+        <>
             <div className="w-full h-auto md:h-10 bg-blue-700 overflow-hidden">
                 <video
                     autoPlay
@@ -153,7 +153,7 @@ const Header = React.memo(() => {
                     </div>
                 </div>
             )}
-        </header>
+        </>
     );
 });
 

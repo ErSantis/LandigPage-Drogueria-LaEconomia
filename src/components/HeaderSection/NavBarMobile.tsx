@@ -1,4 +1,4 @@
-import { DropdownIcon } from "./Icons"
+import { DropdownIcon } from "../Icons"
 
 // NavBarMobile.tsx
 const NavBarMobile = () => {
