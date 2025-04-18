@@ -6,35 +6,51 @@ import type { Swiper as SwiperType } from 'swiper';
 import { NavigationButton } from './NavigationButton';
 import { BannerSlide } from './BannerSlide';
 import { banners } from '../../data/banner.data';
+
 import 'swiper/swiper-bundle.css';
 
-export const BannerSection = () => {
-  const swiperRef = useRef<SwiperType | null>(null);
+const BannerSection = () => {
+  const swiperRef = useRef<SwiperType>(null);
 
   return (
-    <div className="relative w-full h-[422px]">
+    <div className="relative w-full h-[140px] md:h-[422px]">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
-        slidesPerView={1}
-        loop={true}
+        centeredSlides={true}
+        loop={true} // Esto asegura el ciclo continuo
+        loopAdditionalSlides={2} // Agrega slides adicionales para un loop suave
+        slidesPerView={1} // En desktop mostramos un banner completo
+        spaceBetween={0} // Sin espacio entre banners en desktop
+        breakpoints={{
+          320: {
+            slidesPerView: 1.05, 
+            centeredSlides: true,
+            spaceBetween: 6, 
+          },
+          768: {
+            slidesPerView: 1, 
+            spaceBetween: 0, 
+            centeredSlides: true, 
+          }
+        }}
         autoplay={{
-          delay: 2000,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         pagination={{
           clickable: true,
           renderBullet: function (index, className) {
-            return `<span class="${className} w-2 h-2 bg-white/50 rounded-full mx-1 cursor-pointer transition-all duration-300 hover:bg-white"></span>`;
+            return `<span class="${className} w-1.5 h-1.5 md:w-2 md:h-2 bg-white/50 rounded-full mx-1 cursor-pointer transition-all duration-300 hover:bg-white"></span>`;
           },
-          bulletActiveClass: '!bg-white',
+          bulletActiveClass: '!bg-blue-800', // Cambiar el color activo a azul
         }}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper;
         }}
-        className="w-full h-full [&_.swiper-pagination]:bottom-6 [&_.swiper-pagination]:!flex [&_.swiper-pagination]:items-center [&_.swiper-pagination]:justify-center"
+        className="w-full h-full px-2 md:px-0"
       >
         {banners.map((banner) => (
-          <SwiperSlide key={banner.id}>
+          <SwiperSlide key={banner.id} className="w-full">
             <BannerSlide banner={banner} />
           </SwiperSlide>
         ))}
@@ -51,3 +67,5 @@ export const BannerSection = () => {
     </div>
   );
 };
+
+export default BannerSection;
