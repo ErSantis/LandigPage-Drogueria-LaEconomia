@@ -28,7 +28,11 @@ const Header = React.memo(() => {
                     muted
                     className="w-full md:h-full object-contain md:object-cover"
                 >
-                    <source src="videos/bannersup.mp4" type="video/mp4" />
+                    <source src={
+                            window.innerWidth < 768
+                                ? "videos/bannersupmobile.mp4"
+                                : "videos/bannersup.mp4"
+                        } type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -118,9 +122,7 @@ const Header = React.memo(() => {
             </div>
 
             {/* NavBar */}
-            <div className="hidden md:block">
-                <NavBar />
-            </div>
+            <NavBar />
 
             {/* Menú móvil */}
             {isMenuOpen && (

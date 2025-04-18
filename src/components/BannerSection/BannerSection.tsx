@@ -13,24 +13,24 @@ const BannerSection = () => {
   const swiperRef = useRef<SwiperType>(null);
 
   return (
-    <div className="relative w-full h-[140px] md:h-[422px]">
+    <>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         centeredSlides={true}
-        loop={true} 
-        loopAdditionalSlides={2} 
-        slidesPerView={1} 
-        spaceBetween={0} 
+        loop={true}
+        loopAdditionalSlides={2}
+        slidesPerView={1}
+        spaceBetween={0}
         breakpoints={{
           320: {
-            slidesPerView: 1.05, 
+            slidesPerView: 1.05,
             centeredSlides: true,
-            spaceBetween: 6, 
+            spaceBetween: 6,
           },
           768: {
-            slidesPerView: 1, 
-            spaceBetween: 0, 
-            centeredSlides: true, 
+            slidesPerView: 1,
+            spaceBetween: 0,
+            centeredSlides: true,
           }
         }}
         autoplay={{
@@ -55,16 +55,16 @@ const BannerSection = () => {
           </SwiperSlide>
         ))}
 
-        <NavigationButton 
-          direction="prev" 
-          onClick={() => swiperRef.current?.slidePrev()} 
+        <NavigationButton
+          direction="prev"
+          onClick={() => swiperRef.current?.slidePrev()}
         />
-        <NavigationButton 
-          direction="next" 
-          onClick={() => swiperRef.current?.slideNext()} 
+        <NavigationButton
+          direction="next"
+          onClick={() => swiperRef.current?.slideNext()}
         />
       </Swiper>
-    </div>
+    </>
   );
 };
 

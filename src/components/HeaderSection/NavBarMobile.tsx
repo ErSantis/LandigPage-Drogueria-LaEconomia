@@ -12,7 +12,7 @@ const NavBarMobile = () => {
     ]
 
     return (
-        <div className="flex flex-col">
+        <nav className="flex flex-col">
             {secciones.map((seccion, index) => (
                 <div className="h-12">
                     <div key={index} className="h-full flex justify-between items-center py-2 px-5">
@@ -22,7 +22,7 @@ const NavBarMobile = () => {
                     <hr className="border-gray-200" />
                 </div>
             ))}
-        </div>
+        </nav>
     )
 }
 
