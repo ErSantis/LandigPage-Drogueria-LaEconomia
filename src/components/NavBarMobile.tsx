@@ -3,8 +3,10 @@ import { DropdownIcon } from "./Icons"
 // NavBarMobile.tsx
 const NavBarMobile = () => {
     const secciones = [
-        "Botiquín",
-        "Salud y belleza",
+        "Medicamentos",
+        "Botiquin",
+        "Salud y Belleza",
+        "Cuidados del bebé",
         "Alimentos y bebidas",
         "Varios"
     ]
