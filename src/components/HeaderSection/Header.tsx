@@ -118,9 +118,7 @@ const Header = React.memo(() => {
             </div>
 
             {/* NavBar */}
-            <div className="hidden md:block">
-                <NavBar />
-            </div>
+            <NavBar />
 
             {/* Menú móvil */}
             {isMenuOpen && (
