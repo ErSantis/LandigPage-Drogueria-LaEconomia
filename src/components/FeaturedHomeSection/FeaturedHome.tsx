@@ -40,6 +40,26 @@ const FeaturedHome = () => {
                     </SwiperSlide>
                 ))}
             </Swiper>
+
+            <div className="w-full h-auto rounded-[9.7px] md:h-16 overflow-hidden ">
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    className="w-full md:h-full object-contain md:object-cover"
+                >
+                    <source
+                        src={
+                            window.innerWidth < 768
+                                ? "videos/animadomobile.mp4"
+                                : "videos/animaweb.mp4"
+                        }
+                        type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
         </>
     )
 }
