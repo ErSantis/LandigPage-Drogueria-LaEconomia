@@ -1,4 +1,5 @@
 import BannerSection from "./components/BannerSection/BannerSection";
+import FeaturedHome from "./components/FeaturedHomeSection/FeaturedHome";
 import Header from "./components/HeaderSection/Header";
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       </header>
       <main>
         <BannerSection />
+        <FeaturedHome />
       </main>
     </>
   );
