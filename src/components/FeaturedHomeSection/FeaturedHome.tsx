@@ -8,7 +8,7 @@ import 'swiper/swiper-bundle.css';
 
 const FeaturedHome = () => {
     return (
-        <div className="w-full bg-white mt-4">
+        <section className="w-full bg-white mt-4">
             <div className="px-4 md:px-40">
                 <Swiper
                     loop={true}
@@ -42,7 +42,7 @@ const FeaturedHome = () => {
                     ))}
                 </Swiper>
             </div>
-        </div>
+        </section>
     )
 }
 
