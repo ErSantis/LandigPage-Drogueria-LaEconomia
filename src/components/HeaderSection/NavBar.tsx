@@ -1,4 +1,4 @@
-import { ChevronDown } from "./Icons"
+import { ChevronDown } from "../Icons"
 
 const NavBar = () => {
 
