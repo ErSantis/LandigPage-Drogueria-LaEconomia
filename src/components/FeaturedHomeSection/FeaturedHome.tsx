@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Importar estilos de Swiper
 import 'swiper/swiper-bundle.css';
+import { importVideo } from "../../utils/importMedia";
 
 const FeaturedHome = () => {
     return (
@@ -51,8 +52,8 @@ const FeaturedHome = () => {
                     <source
                         src={
                             window.innerWidth < 768
-                                ? "videos/animadomobile.mp4"
-                                : "videos/animaweb.mp4"
+                                ? importVideo("animadomobile.mp4")
+                                : importVideo("animaweb.mp4")
                         }
                         type="video/mp4"
                     />

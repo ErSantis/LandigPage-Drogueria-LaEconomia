@@ -15,6 +15,7 @@ import NavBar from "./NavBar";
 import { useState } from "react";
 import NavBarMobile from "./NavBarMobile";
 import React from "react";
+import { importVideo } from "../../utils/importMedia";
 
 const Header = React.memo(() => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,10 +30,10 @@ const Header = React.memo(() => {
                     className="w-full md:h-full object-contain md:object-cover"
                 >
                     <source src={
-                            window.innerWidth < 768
-                                ? "videos/bannersupmobile.mp4"
-                                : "videos/bannersup.mp4"
-                        } type="video/mp4" />
+                        window.innerWidth < 768
+                            ? importVideo("bannersupmobile.mp4")
+                            : importVideo("bannersup.mp4")
+                    } type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
             </div>
