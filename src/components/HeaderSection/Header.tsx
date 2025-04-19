@@ -127,7 +127,7 @@ const Header = React.memo(() => {
 
             {/* Menú móvil */}
             {isMenuOpen && (
-                <div className="fixed top-0 left-0 w-[97%] h-full bg-white z-50 shadow-lg md:hidden">
+                <div className="fixed top-0 left-0 w-screen h-screen overflow-y-hidden bg-white z-50 shadow-lg md:hidden">
                     <div className="p-4 flex justify-between items-center ">
                         <span className="font-poppins font-medium invisible">
                             Placeholder
