@@ -11,39 +11,48 @@ import { NavigationButton } from '../BannerSection/NavigationButton'
 
 
 const BestOffersSection = () => {
-
     const swiperRef = useRef<SwiperType>(null);
 
     return (
         <>
-            <div className='flex items-center'>
+            {/* Header más compacto en móvil */}
+            <div className='flex items-center justify-between px-4 md:px-0'>
                 <div className='flex items-center'>
-                    <h5 className='text-2xl font-bold '>Las mejores ofertas</h5>
-                    <img src={importImage('alarmIcon.png')} alt="alarm-icon" className='h-7 w-7 ml-1' />
+                    <h5 className='text-lg md:text-2xl font-bold'>Las mejores ofertas</h5>
+                    <img
+                        src={importImage('alarmIcon.png')}
+                        alt="alarm-icon"
+                        className='h-5 w-5 md:h-7 md:w-7 ml-1'
+                    />
                 </div>
-                <Link to="#" className='text-blue-700 font-medium text-base underline ml-4 my-1'>Ver todas</Link>
+                <Link
+                    to="#"
+                    className='text-blue-700 font-medium text-sm md:text-base underline'
+                >
+                    Ver todos
+                </Link>
             </div>
 
-
-            <div className='w-full h-auto mt-5 gap-8 flex items-center'>
+            {/* Contenedor del Swiper */}
+            <div className='w-full h-auto mt-4 md:mt-5'>
                 <Swiper
                     modules={[Navigation, Autoplay]}
                     loop={true}
-                    spaceBetween={10}
-                    slidesPerView={5}
+                    spaceBetween={8}
+                    slidesPerView="auto"
                     allowTouchMove={true}
                     breakpoints={{
                         320: {
-                            slidesPerView: 3.5,
-                            spaceBetween: 12,
+                            slidesPerView: 2.2,
+                            spaceBetween: 8,
                         },
                         768: {
-                            slidesPerView: 4,
-                            spaceBetween: 20,
+                            slidesPerView: 3,
+                            spaceBetween: 16,
                         },
                         1024: {
                             slidesPerView: 5,
-                            spaceBetween: 0,
+                            spaceBetween: 20,
                         },
                     }}
                     autoplay={{
@@ -53,26 +62,30 @@ const BestOffersSection = () => {
                     onBeforeInit={(swiper) => {
                         swiperRef.current = swiper;
                     }}
-                    className="!overflow-y-visible" // Permite que el contenido se desborde verticalmente
+                    className="!overflow-visible px-4 md:px-0" // Padding en móvil
                 >
                     {products.map((product, index) => (
-                        <SwiperSlide key={index}> {/* Altura automática */}
+                        <SwiperSlide
+                            key={index}
+                            className="!w-auto" // Permite que el slide tome el ancho del contenido
+                        >
                             <BestOffersProduct product={product} />
                         </SwiperSlide>
                     ))}
 
-                    <NavigationButton
-                        direction="prev"
-                        onClick={() => swiperRef.current?.slidePrev()}
-                    />
-                    <NavigationButton
-                        direction="next"
-                        onClick={() => swiperRef.current?.slideNext()}
-                    />
+                    {/* Botones de navegación solo visibles en desktop */}
+                    <div className="hidden md:block">
+                        <NavigationButton
+                            direction="prev"
+                            onClick={() => swiperRef.current?.slidePrev()}
+                        />
+                        <NavigationButton
+                            direction="next"
+                            onClick={() => swiperRef.current?.slideNext()}
+                        />
+                    </div>
                 </Swiper>
-
             </div>
-
         </>
     )
 }
