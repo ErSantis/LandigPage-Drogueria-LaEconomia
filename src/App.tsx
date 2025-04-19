@@ -1,4 +1,5 @@
 import BannerSection from "./components/BannerSection/BannerSection";
+import BestOffersSection from "./components/BestOffersSection/BestOffersSection";
 import FeaturedHome from "./components/FeaturedHomeSection/FeaturedHome";
 import Header from "./components/HeaderSection/Header";
 
@@ -8,12 +9,15 @@ function App() {
       <header>
         <Header />
       </header>
-      <main className="w-full">
+      <main className="w-full bg-gray-100">
         <section className="relativeh-[140px] md:h-[422px]">
           <BannerSection />
         </section >
-        <section className="bg-white mt-4 px-4 md:px-10">
+        <section className="mt-4 px-4 md:px-10">
           <FeaturedHome />
+        </section>
+        <section className="mt-4 px-4 md:px-10">
+          <BestOffersSection />
         </section>
       </main>
     </>
