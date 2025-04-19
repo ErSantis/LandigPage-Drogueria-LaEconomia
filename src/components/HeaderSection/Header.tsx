@@ -15,7 +15,7 @@ import NavBar from "./NavBar";
 import { useState } from "react";
 import NavBarMobile from "./NavBarMobile";
 import React from "react";
-import { importVideo } from "../../utils/importMedia";
+import { importImage, importVideo } from "../../utils/importMedia";
 
 const Header = React.memo(() => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -58,7 +58,7 @@ const Header = React.memo(() => {
                         {" "}
                         {/* Ajustado el tamaño para desktop */}
                         <img
-                            src="images/Logo.png"
+                            src={importImage("Logo.png")}
                             alt="La Economía Droguería"
                             className="h-full object-contain"
                         />
