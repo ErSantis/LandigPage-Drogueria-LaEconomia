@@ -1,6 +1,7 @@
 // FeaturedProduct.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { importImage } from '../../utils/importMedia';
 
 interface FeaturedProductProps {
     title: string;
@@ -15,7 +16,7 @@ const FeaturedProduct = React.memo(({ title, image }: FeaturedProductProps) => {
         >
             <div className="relative flex items-center justify-center rounded-full  border-solid border-blue-300 w-[60px] h-[60px] border-[2.02px] gap-[5.04px] md:w-[100px] md:h-[100px] md:border-[3.36px] md:gap-[8.4px] ">
                 <img
-                    src={image}
+                    src={importImage(image)}
                     alt={title}
                     className="absolute w-auto h-auto max-w-[120%] max-h-[120%] transform  transition-all duration-300 ease-in-out group-hover:scale-110"
                 />
