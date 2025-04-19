@@ -10,7 +10,7 @@ function App() {
         <Header />
       </header>
       <main className="w-full bg-gray-100">
-        <section className="relativeh-[140px] md:h-[422px]">
+        <section className="relative h-[140px] md:h-[422px]">
           <BannerSection />
         </section >
         <section className="mt-4 px-4 md:px-10">
