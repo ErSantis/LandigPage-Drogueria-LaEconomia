@@ -1,21 +1,21 @@
-import { useRef } from 'react'
-import { importIcons} from '../../utils/importMedia'
-import { Link } from 'react-router-dom'
-import BestOffersProduct from './BestOffersProduct'
-import { products } from '../../data/product.data'
-import { Swiper } from 'swiper/react'
-import { SwiperSlide } from 'swiper/react'
-import { Autoplay, Navigation } from 'swiper/modules'
-import { Swiper as SwiperType } from 'swiper'
-import { NavigationButton } from '../BannerSection/NavigationButton'
-
+import { useRef } from 'react';
+import { importIcons } from '../../utils/importMedia';
+import { Link } from 'react-router-dom';
+import BestOffersProduct from './BestOffersProduct';
+import { products } from '../../data/product.data';
+import { Swiper } from 'swiper/react';
+import { SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation } from 'swiper/modules';
+import { Swiper as SwiperType } from 'swiper';
+import { NavigationButton } from '../BannerSection/NavigationButton';
 
 const BestOffersSection = ({ title, icon }: { title: string, icon: string }) => {
     const swiperRef = useRef<SwiperType>(null);
 
     return (
-        <>
-            {/* Header más compacto en móvil */}
+        <div className="relative w-full overflow-hidden"> 
+
+            {/* Header */}
             <div className='flex items-center gap-1'>
                 <div className='flex items-center'>
                     <h5 className='text-lg md:text-2xl font-bold'>{title}</h5>
@@ -32,23 +32,33 @@ const BestOffersSection = ({ title, icon }: { title: string, icon: string }) => 
                     Ver todos
                 </Link>
             </div>
+            {/* Swiper con botones externos */}
+            <div className='w-full h-auto mt-4 md:mt-5 relative'>
 
-            {/* Contenedor del Swiper */}
-            <div className='w-full h-auto mt-4 md:mt-5'>
+                {/* Botones flotantes */}
+                <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 w-full justify-between px-4 z-20">
+                    <NavigationButton
+                        direction="prev"
+                        onClick={() => swiperRef.current?.slidePrev()}
+                    />
+                    <NavigationButton
+                        direction="next"
+                        onClick={() => swiperRef.current?.slideNext()}
+                    />
+                </div>
+
                 <Swiper
                     modules={[Navigation, Autoplay]}
-                    loop={true}
-                    spaceBetween={8}
-                    slidesPerView="auto"
+                    loop={true} 
                     allowTouchMove={true}
                     breakpoints={{
                         320: {
-                            slidesPerView: 2.2,
-                            spaceBetween: 8,
+                            slidesPerView: 2.5,
+                            spaceBetween: 60,
                         },
                         768: {
-                            slidesPerView: 3,
-                            spaceBetween: 16,
+                            slidesPerView: 4,
+                            spaceBetween: 20,
                         },
                         1024: {
                             slidesPerView: 5,
@@ -62,32 +72,20 @@ const BestOffersSection = ({ title, icon }: { title: string, icon: string }) => 
                     onBeforeInit={(swiper) => {
                         swiperRef.current = swiper;
                     }}
-                    className="!overflow-visible px-4 md:px-0" // Padding en móvil
+                    className="!overflow-visible"
                 >
                     {products.map((product, index) => (
                         <SwiperSlide
                             key={index}
-                            className="!w-auto" // Permite que el slide tome el ancho del contenido
+                            className="w-full px-2"
                         >
                             <BestOffersProduct product={product} />
                         </SwiperSlide>
                     ))}
-
-                    {/* Botones de navegación solo visibles en desktop */}
-                    <div className="hidden md:block">
-                        <NavigationButton
-                            direction="prev"
-                            onClick={() => swiperRef.current?.slidePrev()}
-                        />
-                        <NavigationButton
-                            direction="next"
-                            onClick={() => swiperRef.current?.slideNext()}
-                        />
-                    </div>
                 </Swiper>
             </div>
-        </>
-    )
+        </div>
+    );
 }
 
-export default BestOffersSection
+export default BestOffersSection;
