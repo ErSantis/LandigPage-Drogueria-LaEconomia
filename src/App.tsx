@@ -1,5 +1,6 @@
 import BannerSection from "./components/BannerSection/BannerSection";
 import BestOffersSection from "./components/BestOffersSection/BestOffersSection";
+import CategorySection from "./components/CategorysSection/CategorySection";
 import FeaturedHome from "./components/FeaturedHomeSection/FeaturedHome";
 import Header from "./components/HeaderSection/Header";
 
@@ -16,8 +17,11 @@ function App() {
         <section className="mt-4 px-4 md:px-10">
           <FeaturedHome />
         </section>
-        <section className="mt-4 px-4 md:px-10">
+        <section className="mt-10 px-4 md:px-10">
           <BestOffersSection />
+        </section>
+        <section className="mt-10 px-4 md:px-10">
+          <CategorySection/>
         </section>
       </main>
     </>
