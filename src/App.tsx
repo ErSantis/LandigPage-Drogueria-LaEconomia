@@ -5,6 +5,7 @@ import CategorySection from "./components/CategorysSection/CategorySection";
 import FeaturedHome from "./components/FeaturedHomeSection/FeaturedHome";
 import Header from "./components/HeaderSection/Header";
 import InspiredByWellBeing from "./components/InspiredByWellBeing/InpiredByWellBeing";
+import { BottomBanners, TopBanners } from "./data/banner.data";
 
 function App() {
   return (
@@ -13,12 +14,12 @@ function App() {
         <Header />
       </header>
 
-      <section className="relative h-[140px] md:h-[422px]">
-        <BannerSection />
+      <section className="w-full h-auto">
+        <BannerSection banners={TopBanners}/>
       </section>
 
-      <main className="w-full bg-gray-100 px-4 md:px-10">
-        <section id="featured products" className=" mt-4 md:mt-10">
+      <main className="w-full h-auto bg-gray-100 px-4 md:px-10">
+        <section id="featured products" className=" pt-4 md:pt-10">
           <FeaturedHome />
         </section>
 
@@ -46,6 +47,10 @@ function App() {
 
         <section id="best brands" className=" mt-4 md:mt-10">
           <BestBrand />
+        </section>
+
+        <section id="best brands" className=" mt-4 md:mt-10">
+          <BannerSection banners={BottomBanners}/>
         </section>
       </main>
     </>
