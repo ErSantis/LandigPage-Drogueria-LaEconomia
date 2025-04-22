@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { importImage } from '../../utils/importMedia'
+import { importIcons} from '../../utils/importMedia'
 import { Link } from 'react-router-dom'
 import BestOffersProduct from './BestOffersProduct'
 import { products } from '../../data/product.data'
@@ -10,24 +10,24 @@ import { Swiper as SwiperType } from 'swiper'
 import { NavigationButton } from '../BannerSection/NavigationButton'
 
 
-const BestOffersSection = () => {
+const BestOffersSection = ({ title, icon }: { title: string, icon: string }) => {
     const swiperRef = useRef<SwiperType>(null);
 
     return (
         <>
             {/* Header más compacto en móvil */}
-            <div className='flex items-center justify-between px-4 md:px-0'>
+            <div className='flex items-center gap-1'>
                 <div className='flex items-center'>
-                    <h5 className='text-lg md:text-2xl font-bold'>Las mejores ofertas</h5>
+                    <h5 className='text-lg md:text-2xl font-bold'>{title}</h5>
                     <img
-                        src={importImage('alarmIcon.png')}
+                        src={importIcons(icon)}
                         alt="alarm-icon"
                         className='h-5 w-5 md:h-7 md:w-7 ml-1'
                     />
                 </div>
                 <Link
                     to="#"
-                    className='text-blue-700 font-medium text-sm md:text-base underline'
+                    className='text-blue-700 mx-4 font-medium text-sm md:text-base underline'
                 >
                     Ver todos
                 </Link>
