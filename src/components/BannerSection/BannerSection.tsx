@@ -5,15 +5,30 @@ import { useRef } from 'react';
 import type { Swiper as SwiperType } from 'swiper';
 import { NavigationButton } from './NavigationButton';
 import { BannerSlide } from './BannerSlide';
-import { banners } from '../../data/banner.data';
-
 import 'swiper/swiper-bundle.css';
+import { Banner } from '../../types/banner.type';
 
-const BannerSection = () => {
+const BannerSection = ({ banners }: { banners: Banner[] }) => {
   const swiperRef = useRef<SwiperType>(null);
 
   return (
-    <>
+    <div className="w-full h-full relative">
+
+      <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 w-full z-20">
+        <div className="absolute -left-2">
+          <NavigationButton
+            direction="prev"
+            onClick={() => swiperRef.current?.slidePrev()}
+          />
+        </div>
+        <div className="absolute -right-2">
+          <NavigationButton
+            direction="next"
+            onClick={() => swiperRef.current?.slideNext()}
+          />
+        </div>
+      </div>
+
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         centeredSlides={true}
@@ -42,7 +57,7 @@ const BannerSection = () => {
           renderBullet: function (className) {
             return `<span class="${className} w-1.5 h-1.5 md:w-2 md:h-2 bg-white/50 rounded-full mx-1 cursor-pointer transition-all duration-300 hover:bg-white"></span>`;
           },
-          bulletActiveClass: '!bg-blue-800', // Cambiar el color activo a azul
+          bulletActiveClass: '!bg-blue-800',
         }}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper;
@@ -54,17 +69,9 @@ const BannerSection = () => {
             <BannerSlide banner={banner} />
           </SwiperSlide>
         ))}
-
-        <NavigationButton
-          direction="prev"
-          onClick={() => swiperRef.current?.slidePrev()}
-        />
-        <NavigationButton
-          direction="next"
-          onClick={() => swiperRef.current?.slideNext()}
-        />
       </Swiper>
-    </>
+    </div>
+
   );
 };
 
