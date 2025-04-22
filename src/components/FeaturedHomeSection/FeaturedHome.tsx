@@ -6,8 +6,28 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Importar estilos de Swiper
 import 'swiper/swiper-bundle.css';
 import { importVideo } from "../../utils/importMedia";
+import { useEffect, useState } from "react";
 
 const FeaturedHome = () => {
+
+     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+    
+      useEffect(() => {
+        const handleResize = () => {
+          const isNowMobile = window.innerWidth <= 768;
+          console.log('Cambió el tamaño:', isNowMobile); // Para debug
+          setIsMobile(isNowMobile);
+        };
+    
+        // Ejecutar también al inicio
+        handleResize();
+    
+        window.addEventListener("resize", handleResize);
+    
+        return () => {
+          window.removeEventListener("resize", handleResize);
+        };
+      }, []);
     return (
         <>
             <Swiper
@@ -42,8 +62,9 @@ const FeaturedHome = () => {
                 ))}
             </Swiper>
 
-            <div className="w-full h-auto rounded-[9.7px] md:h-16 overflow-hidden ">
+            <div className="w-full h-auto rounded-[9.7px]  overflow-hidden ">
                 <video
+                key={isMobile ? 'mobile' : 'desktop'}
                     autoPlay
                     loop
                     muted

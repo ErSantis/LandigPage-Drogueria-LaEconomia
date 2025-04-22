@@ -1,41 +1,28 @@
-import { useEffect, useRef, useState } from "react";
-import { importIcons, importImage } from "../../utils/importMedia";
+import {useRef} from "react";
+import { importIcons} from "../../utils/importMedia";
 
 import { Swiper } from "swiper/react";
 import { SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper as SwiperType } from "swiper";
 import { NavigationButton } from "../BannerSection/NavigationButton";
-import { productsWellBeing } from "../../data/inspiredbywellbeing.data";
-import InpiredByWellBeingProduct from "./InpiredByWellBeingProduct";
+import Brand from "./Brand";
+import { brands } from "../../data/brands.data";
 
-const InspiredByWellBeing = () => {
+
+const BestBrand = () => {
     const swiperRef = useRef<SwiperType>(null);
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-    useEffect(() => {
-        const handleResize = () => {
-            const isNowMobile = window.innerWidth <= 768;
-            setIsMobile(isNowMobile);
-        };
 
-        // Ejecutar también al inicio
-        handleResize();
-
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
+    
     return (
         <>
             <div className="relative w-full overflow-hidden">
                 {/* Header */}
                 <div className="flex items-center gap-1">
                     <div className="flex items-center">
-                        <h5 className="text-lg md:text-2xl font-bold">Inspirados en tu bienestar</h5>
+                        <h5 className="text-lg md:text-2xl font-bold">Las mejores marcas</h5>
                         <img
-                            src={importIcons('bienestar-icon.png')}
+                            src={importIcons('star.png')}
                             alt="alarm-icon"
                             className="h-5 w-5 md:h-7 md:w-7 ml-1"
                         />
@@ -84,25 +71,16 @@ const InspiredByWellBeing = () => {
                         }}
                         className="!overflow-visible"
                     >
-                        {productsWellBeing.map((product, index) => (
+                        {brands.map((product, index) => (
                             <SwiperSlide key={index} className="w-full px-2">
-                                <InpiredByWellBeingProduct product={product} />
+                                <Brand product={product} />
                             </SwiperSlide>
                         ))}
                     </Swiper>
                 </div>
             </div>
-
-            <div className="w-full h-auto mt-4 md:mt-10 relative hover:scale-105 transition-transform duration-300 ease-in-out">
-                <img
-                    src={importImage(
-                        !isMobile ? "banner-vida-sana.png" : "banner-vida-sana-mobile.png"
-                    )}
-                    alt="vida-sana"
-                />
-            </div>
         </>
     );
 };
 
-export default InspiredByWellBeing;
+export default BestBrand;
