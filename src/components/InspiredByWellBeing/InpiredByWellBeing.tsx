@@ -1,20 +1,19 @@
-import { useRef } from 'react';
-import { importIcons } from '../../utils/importMedia';
-import { Link } from 'react-router-dom';
-import BestOffersProduct from './BestOffersProduct';
-import { products } from '../../data/product.data';
-import { Swiper } from 'swiper/react';
-import { SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation } from 'swiper/modules';
-import { Swiper as SwiperType } from 'swiper';
-import { NavigationButton } from '../BannerSection/NavigationButton';
+import { useRef } from 'react'
+import { importIcons } from '../../utils/importMedia'
 
-const BestOffersSection = ({ title, icon }: { title: string, icon: string }) => {
+import { Swiper } from 'swiper/react'
+import { SwiperSlide } from 'swiper/react'
+import { Autoplay, Navigation } from 'swiper/modules'
+import { Swiper as SwiperType } from 'swiper'
+import { NavigationButton } from '../BannerSection/NavigationButton'
+import { productsWellBeing } from '../../data/inspiredbywellbeing.data'
+import InpiredByWellBeingProduct from './InpiredByWellBeingProduct'
+
+const InspiredByWellBeing = ({ title, icon }: { title: string, icon: string }) => {
     const swiperRef = useRef<SwiperType>(null);
 
     return (
         <div className="relative w-full overflow-hidden"> 
-
             {/* Header */}
             <div className='flex items-center gap-1'>
                 <div className='flex items-center'>
@@ -25,13 +24,8 @@ const BestOffersSection = ({ title, icon }: { title: string, icon: string }) => 
                         className='h-5 w-5 md:h-7 md:w-7 ml-1'
                     />
                 </div>
-                <Link
-                    to="#"
-                    className='text-blue-700 mx-4 font-medium text-sm md:text-base underline'
-                >
-                    Ver todos
-                </Link>
             </div>
+
             {/* Swiper con botones externos */}
             <div className='w-full h-auto mt-4 md:mt-5 relative'>
 
@@ -49,20 +43,21 @@ const BestOffersSection = ({ title, icon }: { title: string, icon: string }) => 
 
                 <Swiper
                     modules={[Navigation, Autoplay]}
-                    loop={true} 
+                    loop={true}
+                    spaceBetween={30}
                     allowTouchMove={true}
                     breakpoints={{
                         320: {
-                            slidesPerView: 2.5,
-                            spaceBetween: 60,
+                            slidesPerView: 4,
+                            spaceBetween: 10,
                         },
                         768: {
                             slidesPerView: 4,
-                            spaceBetween: 20,
+                            spaceBetween: 10,
                         },
                         1024: {
                             slidesPerView: 5,
-                            spaceBetween: 20,
+                            spaceBetween: 10,
                         },
                     }}
                     autoplay={{
@@ -74,18 +69,18 @@ const BestOffersSection = ({ title, icon }: { title: string, icon: string }) => 
                     }}
                     className="!overflow-visible"
                 >
-                    {products.map((product, index) => (
+                    {productsWellBeing.map((product, index) => (
                         <SwiperSlide
                             key={index}
                             className="w-full px-2"
                         >
-                            <BestOffersProduct product={product} />
+                            <InpiredByWellBeingProduct product={product} />
                         </SwiperSlide>
                     ))}
                 </Swiper>
             </div>
         </div>
-    );
+    )
 }
 
-export default BestOffersSection;
+export default InspiredByWellBeing

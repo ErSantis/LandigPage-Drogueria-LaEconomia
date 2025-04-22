@@ -3,6 +3,7 @@ import BestOffersSection from "./components/BestOffersSection/BestOffersSection"
 import CategorySection from "./components/CategorysSection/CategorySection";
 import FeaturedHome from "./components/FeaturedHomeSection/FeaturedHome";
 import Header from "./components/HeaderSection/Header";
+import InspiredByWellBeing from "./components/InspiredByWellBeing/InpiredByWellBeing";
 
 function App() {
   return (
@@ -13,18 +14,35 @@ function App() {
       <main className="w-full bg-gray-100">
         <section className="relative h-[140px] md:h-[422px]">
           <BannerSection />
-        </section >
+        </section>
+
         <section className="mt-4 px-4 md:px-10">
           <FeaturedHome />
         </section>
+
         <section className="mt-10 px-4 md:px-10">
-          <BestOffersSection title={"Las mejores ofertas"} icon={"alarmIcon.png"} />
+          <BestOffersSection
+            title={"Las mejores ofertas"}
+            icon={"alarmIcon.png"}
+          />
         </section>
+
         <section className="mt-10 px-4 md:px-10">
           <CategorySection />
         </section>
+
         <section className="mt-10 px-4 md:px-10">
-          <BestOffersSection title={"Lo más buscado"} icon={"starFaceIcon.png"} />
+          <BestOffersSection
+            title={"Lo más buscado"}
+            icon={"starFaceIcon.png"}
+          />
+        </section>
+
+        <section className="mt-10 px-4 md:px-10">
+          <InspiredByWellBeing
+            title={"Inspirado en tu bienestar"}
+            icon={"bienestar-icon.png"}
+          />
         </section>
       </main>
     </>
