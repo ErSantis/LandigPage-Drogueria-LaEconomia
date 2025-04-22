@@ -18,10 +18,13 @@ function App() {
           <FeaturedHome />
         </section>
         <section className="mt-10 px-4 md:px-10">
-          <BestOffersSection />
+          <BestOffersSection title={"Las mejores ofertas"} icon={"alarmIcon.png"} />
         </section>
         <section className="mt-10 px-4 md:px-10">
-          <CategorySection/>
+          <CategorySection />
+        </section>
+        <section className="mt-10 px-4 md:px-10">
+          <BestOffersSection title={"Lo más buscado"} icon={"starFaceIcon.png"} />
         </section>
       </main>
     </>
