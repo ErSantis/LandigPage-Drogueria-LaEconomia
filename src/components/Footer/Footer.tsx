@@ -1,13 +1,13 @@
 
 import { Facebook, Instagram, Youtube, MessageCircle } from "lucide-react"
 import { Link } from "react-router-dom"
-import { importIcons, importImage} from "../../utils/importMedia"
+import { importIcons, importImage } from "../../utils/importMedia"
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-white py-8 px-4 md:px-8 lg:px-12">
+    <footer className="w-full bg-white py-8 px-4 md:px-20 md:py-10">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {/* La empresa */}
           <div className="space-y-4">
             <h3 className="font-bold text-lg mb-4">La empresa</h3>
@@ -94,7 +94,7 @@ export default function Footer() {
           </div>
 
           {/* App Download */}
-          <div className="space-y-4">
+          <div className="col-span-2 lg:col-span-1 space-y-4 mt-6 lg:mt-0">
             <h3 className="font-bold text-lg mb-4">¡Descarga gratis la APP!</h3>
 
             {/* Desktop version with QR code */}
@@ -122,19 +122,21 @@ export default function Footer() {
             <div className="md:hidden">
               <Link
                 to="#"
-                className="flex items-center gap-4 bg-white rounded-full shadow-md p-3 border border-gray-100"
+                className="flex items-center justify-between  gap-4 bg-white rounded-full shadow-md py-4 px-8 border border-gray-100"
               >
                 <div className="w-10 h-10 relative flex-shrink-0">
-                    <img
-                        src={importIcons("logo.png")}
-                        alt="Logo de la app"
-                        width={40}
-                        height={40}
-                        className="rounded-full"
-                    />
+                  <img
+                    src={importIcons("logo.png")}
+                    alt="Logo de la app"
+                    width={40}
+                    height={40}
+                    className="rounded-full"
+                  />
                 </div>
+                {/* Vertical divider */}
+                <div className="w-px h-10 bg-gray-300 mr-4"></div>
                 <div className="text-gray-700">
-                  <p className="text-sm">Descarga gratis</p>
+                  <p className="text-lg">Descarga gratis</p>
                   <p className="font-medium">La Economía App</p>
                 </div>
               </Link>

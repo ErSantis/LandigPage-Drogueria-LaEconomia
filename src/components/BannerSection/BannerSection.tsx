@@ -1,7 +1,7 @@
 // components/BannerSection/BannerSection.tsx
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { Swiper as SwiperType } from 'swiper';
 import { NavigationButton } from './NavigationButton';
 import { BannerSlide } from './BannerSlide';
@@ -10,6 +10,22 @@ import { Banner } from '../../types/banner.type';
 
 const BannerSection = ({ banners }: { banners: Banner[] }) => {
   const swiperRef = useRef<SwiperType>(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+      useEffect(() => {
+          const handleResize = () => {
+              const isNowMobile = window.innerWidth <= 768;
+              setIsMobile(isNowMobile);
+          };
+  
+          // Ejecutar también al inicio
+          handleResize();
+  
+          window.addEventListener("resize", handleResize);
+  
+          return () => {
+              window.removeEventListener("resize", handleResize);
+          };
+      }, []);
 
   return (
     <div className="w-full h-full relative">
@@ -66,7 +82,7 @@ const BannerSection = ({ banners }: { banners: Banner[] }) => {
       >
         {banners.map((banner) => (
           <SwiperSlide key={banner.id} className="w-full">
-            <BannerSlide banner={banner} />
+            <BannerSlide banner={banner} isMobile={isMobile} />
           </SwiperSlide>
         ))}
       </Swiper>

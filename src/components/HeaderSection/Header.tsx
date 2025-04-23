@@ -1,4 +1,3 @@
-// Header.tsx
 import {
   CartIcon,
   CatsIcon,
@@ -20,14 +19,13 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
+ /// Manejo del estado del menú móvil
   useEffect(() => {
     const handleResize = () => {
       const isNowMobile = window.innerWidth <= 768;
-      console.log('Cambió el tamaño:', isNowMobile); // Para debug
       setIsMobile(isNowMobile);
     };
 
-    // Ejecutar también al inicio
     handleResize();
 
     window.addEventListener("resize", handleResize);
@@ -41,7 +39,7 @@ const Header = () => {
     <>
       <div className="w-full h-auto md:h-10 bg-blue-700 overflow-hidden">
         <video
-          key={isMobile ? 'mobile' : 'desktop'} // Fuerza la recreación del elemento
+          key={isMobile ? 'mobile' : 'desktop'} 
           autoPlay
           loop
           muted
@@ -71,7 +69,7 @@ const Header = () => {
 
           {/* Logo */}
           <div className="h-11 md:h-16 md:w-[180px]">
-            {" "}
+    
             {/* Ajustado el tamaño para desktop */}
             <img
               src={importImage("Logo.png")}
@@ -96,7 +94,7 @@ const Header = () => {
             <input
               type="text"
               placeholder="Buscar por productos, marcas y más..."
-              className="flex-1 bg-transparent outline-none text-sm text-[14px] text-gray-700 w-full h-full font-popins"
+              className="flex-1 bg-transparent outline-none text-sm text-sm text-gray-700 w-full h-full font-popins"
             />
             <SearchIcon />
           </div>
@@ -106,20 +104,20 @@ const Header = () => {
         <div className="hidden md:flex items-center gap-4 h-6 text-gray-700">
           <div className="flex items-center gap-1 h-full">
             <LocationIcon />
-            <span className="font-poppins text-[14px] font-normal leading-[20px]">
+            <span className="font-poppins text-sm font-normal">
               Barranquilla
             </span>
           </div>
           <div className="flex items-center gap-1 h-full">
             <UserIcon />
-            <span className="font-poppins text-[14px] font-normal leading-[20px]">
+            <span className="font-poppins text-sm font-normal">
               Edgardo
             </span>
             <DropdownIcon />
           </div>
           <div className="flex items-center gap-1 h-full">
             <CuponesIcon />
-            <span className="font-poppins text-[14px] font-normal leading-[20px]">
+            <span className="font-poppins text-sm font-normal">
               Cupones
             </span>
           </div>
@@ -132,7 +130,7 @@ const Header = () => {
       {/* Ubicación versión móvil */}
       <div className="md:hidden w-full bg-blue-50 p-4 flex items-center gap-2">
         <LocationIcon />
-        <span className="text-blue-700 font-poppins text-[14px]">
+        <span className="text-blue-700 font-poppins text-sm">
           Barranquilla
         </span>
         <DropdownIcon />
@@ -167,7 +165,7 @@ const Header = () => {
               </span>
             </div>
             <hr className="border-gray-200" />
-            {/* Aquí van las secciones del NavBar */}
+            {/* Aquí van las secciones del NavBarMobile */}
             <NavBarMobile />
           </div>
         </div>

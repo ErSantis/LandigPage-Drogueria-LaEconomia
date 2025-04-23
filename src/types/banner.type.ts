@@ -3,4 +3,5 @@ export interface Banner {
     image: string;
     alt: string;
     link?: string;
+    imageMobile?: string;
 }

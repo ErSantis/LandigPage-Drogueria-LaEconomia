@@ -47,23 +47,27 @@ export const BottomBanners: Banner[] = [
     image: "banner-bottom-1.jpg",
     alt: "Promoción 7",
     link: "/promo7",
+    imageMobile: "banner-bottom-1-mobile.jpg",
   },
   {
     id: 2,
     image: "banner-bottom-2.jpg",
     alt: "Promoción 8",
     link: "/promo8",
+    imageMobile: "banner-bottom-2-mobile.jpg",
   },
   {
     id: 3,
     image: "banner-bottom-3.jpg",
     alt: "Promoción 9",
     link: "/promo9",
+    imageMobile: "banner-bottom-3-mobile.jpg",
   },
   {
     id: 4,
     image: "banner-bottom-4.jpg",
     alt: "Promoción 10",
     link: "/promo10",
+    imageMobile: "banner-bottom-4-mobile.png",
   }
 ];

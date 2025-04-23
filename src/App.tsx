@@ -19,7 +19,7 @@ function App() {
         <BannerSection banners={TopBanners}/>
       </section>
 
-      <main className="w-full h-auto bg-gray-100 px-4 md:px-10">
+      <main className="w-full h-auto bg-gray-100 px-4 md:px-20">
         <section id="featured products" className=" pt-4 md:pt-10">
           <FeaturedHome />
         </section>
