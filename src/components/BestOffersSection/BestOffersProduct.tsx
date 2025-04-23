@@ -8,7 +8,7 @@ const BestOffersProduct = ({ product }: { product: Product }) => {
     const { baseProduct, newPrice, originalPrice, priceGr, badges } = product;
 
     return (
-        <div className="w-[160px] md:w-[230px] h-[380px] md:h-[450px] bg-white p-2 pt-2 pb-4 rounded-lg border flex flex-col">
+        <div className="w-[160px] md:w-[210px] h-[380px] md:h-[450px] bg-white p-2 pt-2 pb-4 rounded-lg border flex flex-col">
             {/* Imagen del producto - altura fija */}
             <div className="w-full h-[140px] md:h-[197px] mb-2">
                 <img

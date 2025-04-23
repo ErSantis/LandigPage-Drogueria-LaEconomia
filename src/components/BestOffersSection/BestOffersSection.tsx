@@ -35,17 +35,20 @@ const BestOffersSection = ({ title, icon }: { title: string, icon: string }) => 
             {/* Swiper con botones externos */}
             <div className='w-full h-auto mt-4 md:mt-5 relative'>
 
-                {/* Botones flotantes */}
-                <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 w-full justify-between px-4 z-20">
-                    <NavigationButton
-                        direction="prev"
-                        onClick={() => swiperRef.current?.slidePrev()}
-                    />
-                    <NavigationButton
-                        direction="next"
-                        onClick={() => swiperRef.current?.slideNext()}
-                    />
-                </div>
+            <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 w-full z-20">
+        <div className="absolute -left-2 -top-4">
+          <NavigationButton
+            direction="prev"
+            onClick={() => swiperRef.current?.slidePrev()}
+          />
+        </div>
+        <div className="absolute -right-2 -top-4">
+          <NavigationButton
+            direction="next"
+            onClick={() => swiperRef.current?.slideNext()}
+          />
+        </div>
+      </div>
 
                 <Swiper
                     modules={[Navigation, Autoplay]}
