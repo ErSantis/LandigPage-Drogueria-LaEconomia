@@ -3,6 +3,7 @@ import BestBrand from "./components/BestBrands/BestBrand";
 import BestOffersSection from "./components/BestOffersSection/BestOffersSection";
 import CategorySection from "./components/CategorysSection/CategorySection";
 import FeaturedHome from "./components/FeaturedHomeSection/FeaturedHome";
+import Footer from "./components/Footer/Footer";
 import Header from "./components/HeaderSection/Header";
 import InspiredByWellBeing from "./components/InspiredByWellBeing/InpiredByWellBeing";
 import { BottomBanners, TopBanners } from "./data/banner.data";
@@ -53,6 +54,10 @@ function App() {
           <BannerSection banners={BottomBanners}/>
         </section>
       </main>
+
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 }
