@@ -24,6 +24,8 @@ This repository contains the code for the landing page of Drogueria La Economia,
    npm start
    ```
 2. Open your browser and navigate to `http://localhost:3000` to view the landing page.
+3. Alternatively, you can visit the deployed project on GitHub Pages:
+   [Landing Page Drogueria La Economia](https://ersantis.github.io/LandigPage-Drogueria-LaEconomia/)
 
 ## Technologies Used
 
@@ -31,9 +33,7 @@ This repository contains the code for the landing page of Drogueria La Economia,
 - **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
 - **Node.js**: For managing dependencies and running the development server.
 
-## Contributing
 
-Feel free to submit issues or pull requests to improve this project.
 
 ## License
 
