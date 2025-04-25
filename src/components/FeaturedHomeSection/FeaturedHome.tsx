@@ -10,32 +10,28 @@ import { useEffect, useState } from "react";
 
 const FeaturedHome = () => {
 
-     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-    
-      useEffect(() => {
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+    useEffect(() => {
         const handleResize = () => {
-          const isNowMobile = window.innerWidth <= 768;
-          console.log('Cambió el tamaño:', isNowMobile); // Para debug
-          setIsMobile(isNowMobile);
+            const isNowMobile = window.innerWidth <= 768;
+            setIsMobile(isNowMobile);
         };
-    
-        // Ejecutar también al inicio
+
         handleResize();
-    
+
         window.addEventListener("resize", handleResize);
-    
+
         return () => {
-          window.removeEventListener("resize", handleResize);
+            window.removeEventListener("resize", handleResize);
         };
-      }, []);
+    }, []);
     return (
         <>
             <Swiper
                 loop={true}
-                spaceBetween={20}
-                slidesPerView={6}
                 allowTouchMove={true}
-                style={{ padding: '20px 0' }} // Añade padding vertical
+                style={{ padding: '20px 0' }}
                 breakpoints={{
                     320: {
                         slidesPerView: 3.5,
@@ -64,7 +60,7 @@ const FeaturedHome = () => {
 
             <div className="w-full h-auto rounded-[9.7px]  overflow-hidden ">
                 <video
-                key={isMobile ? 'mobile' : 'desktop'}
+                    key={isMobile ? 'mobile' : 'desktop'}
                     autoPlay
                     loop
                     muted
