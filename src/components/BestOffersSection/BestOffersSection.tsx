@@ -59,7 +59,15 @@ const BestOffersSection = ({ title, icon }: { title: string, icon: string }) => 
                             slidesPerView: 2.5,
                             spaceBetween: 60,
                         },
+                        480: {
+                            slidesPerView: 3,
+                            spaceBetween: 20,
+                        },
                         768: {
+                            slidesPerView: 3.5,
+                            spaceBetween: 20,
+                        },
+                        640: {
                             slidesPerView: 4,
                             spaceBetween: 20,
                         },
